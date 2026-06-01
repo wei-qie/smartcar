@@ -275,6 +275,8 @@ int core0_main(void)
        //ips114_clear();    // 娓呭睆
   // 初始化无线串口（逐飞无线转串口，115200波特率，关自动波特率）
       wireless_uart_init();
+      // RTS 拉低：模块没有接 P10_2 时，让发送函数认为模块一直就绪
+      gpio_init(P10_2, GPO, GPIO_LOW, GPO_PUSH_PULL);
    system_init();
    pid_init_all();
 
