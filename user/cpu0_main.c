@@ -199,7 +199,7 @@ void Control3(void)
         target_gyro = target_angular_speed;
 
         // ========== 閫�鍑烘潯浠讹細瑙掑害璇樊杈炬爣 鎴� 瓒呮椂寮哄埗閫�鍑� ==========
-        const float EXIT_ANGLE_THRESH = 5.0f; // 瑙掑害璇樊闃堝�硷紙搴︼級
+        const float EXIT_ANGLE_THRESH = 12.0f; // 瑙掑害璇樊闃堝�硷紙搴︼級
         const uint8_t EXIT_FRAMES = 1;        // 闇�瑕佽繛缁弧瓒崇殑甯ф暟
         const uint16_t MAX_TURN_TIMEOUT = 200; // 鏈�澶ц浆寮抚鏁帮紙绾�3-6绉掞級
 
