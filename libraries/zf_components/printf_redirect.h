@@ -55,9 +55,9 @@
 // BLE6A20_INDEX                                        // ble6a20 ��������ģ��
 // BLUETOOTH_CH9141_INDEX                               // ch9141 ����ģ��
 // WIFI_UART_INDEX                                      // wifi ����ģ��
-// WIRELESS_UART_INDEX                                  // ���ߴ���ģ��
+// DEBUG_UART_INDEX                                  // ���ߴ���ģ��
 
-#define  PRINTF_USE_UART        (WIRELESS_UART_INDEX)      // printf ʹ�� WIRELESS_UART_INDEX 无线串口
+#define  PRINTF_USE_UART        (DEBUG_UART_INDEX)      // printf ʹ�� WIRELESS_UART_INDEX 无线串口
 
 
 // ��� PRINTF_OUTPUT_TYPE Ϊ 1���·�������Ϊ��Ч״̬ printf ����ͨ�� SPI ģ�����
