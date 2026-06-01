@@ -392,7 +392,7 @@ typedef struct {
 // 直道参数组（平稳、不易震荡）
 static const PID_Params_t straight_params[] = {
     // place_pid (位置外环)   kp    ki   kd   积分限幅  输出限幅  输出下限
-    { 1.2f, 0.0f, 0.8f, 5000.0f, 3000.0f, -3000.0f },
+    { 1.2f, 0.005f, 0.8f, 5000.0f, 3000.0f, -3000.0f },
     // gyro_pid  (角速度内环)
     { 3.0f, 0.3f, 1.2f, 6000.0f, 2500.0f, -2500.0f },
     // speed_left_pid
