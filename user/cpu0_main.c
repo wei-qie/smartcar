@@ -64,7 +64,7 @@ void Control2(void)
         fan_off();
         return;
     }
-       float base_speed_rpm = corner_turning_active ? 1800.0f : 2800.0f;     // 鍩虹閫熷害锛圧PM锛�
+       float base_speed_rpm=2800.0f;     // 鍩虹閫熷害锛圧PM锛�
        float left_target_rpm = base_speed_rpm +turn_pwm_adjust;
        float right_target_rpm= base_speed_rpm -turn_pwm_adjust;
 
@@ -189,8 +189,8 @@ void Control3(void)
         if (angle_error < -180.0f) angle_error += 360.0f;
 
         // 瑙掑害澶栫幆锛堟瘮渚挎帶鍒讹級
-        const float ANGLE_P = 8.0f;
-        const float MAX_ANGULAR_SPEED = 350.0f;
+        const float ANGLE_P = 14.0f; // 提高：让车更快转到位
+        const float MAX_ANGULAR_SPEED = 500.0f;
         float target_angular_speed = angle_error * ANGLE_P;
         if (target_angular_speed > MAX_ANGULAR_SPEED)
             target_angular_speed = MAX_ANGULAR_SPEED;

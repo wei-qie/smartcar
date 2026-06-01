@@ -410,7 +410,7 @@ static const PID_Params_t curve_params[] = {
     // place_pid
         { 0.6f, 0.0f, 1.0f, 5000.0f, 3000.0f, -3000.0f },
           // gyro_pid
-          { 4.0f, 0.5f, 0.4f, 6000.0f, 3000.0f, -3000.0f },
+          { 6.0f, 0.5f, 0.6f, 6000.0f, 3000.0f, -3000.0f },
           // speed_left_pid
           { 0.8f, 0.098f, 0.0f, 1500.0f, 3000.0f, -3000.0f },
           // speed_right_pid
