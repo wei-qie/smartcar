@@ -190,7 +190,7 @@ void Control3(void)
 
         // 瑙掑害澶栫幆锛堟瘮渚挎帶鍒讹級
         const float ANGLE_P = 10.0f; // 提高：让车更快转到位
-        const float MAX_ANGULAR_SPEED = 500.0f;
+        const float MAX_ANGULAR_SPEED = 400.0f;
         float target_angular_speed = angle_error * ANGLE_P;
         if (target_angular_speed > MAX_ANGULAR_SPEED)
             target_angular_speed = MAX_ANGULAR_SPEED;
@@ -199,7 +199,7 @@ void Control3(void)
         target_gyro = target_angular_speed;
 
         // ========== 閫�鍑烘潯浠讹細瑙掑害璇樊杈炬爣 鎴� 瓒呮椂寮哄埗閫�鍑� ==========
-        const float EXIT_ANGLE_THRESH = 15.0f; // 瑙掑害璇樊闃堝�硷紙搴︼級
+        const float EXIT_ANGLE_THRESH = 8.0f; // 瑙掑害璇樊闃堝�硷紙搴︼級
         const uint8_t EXIT_FRAMES = 1;        // 闇�瑕佽繛缁弧瓒崇殑甯ф暟
         const uint16_t MAX_TURN_TIMEOUT = 200; // 鏈�澶ц浆寮抚鏁帮紙绾�3-6绉掞級
 
