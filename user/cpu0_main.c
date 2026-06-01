@@ -273,16 +273,8 @@ int core0_main(void)
        ips114_set_color(RGB565_RED, RGB565_BLACK); // 璁剧疆鐢荤瑪棰滆壊鍜岃儗鏅壊
        init_track_selector();
        //ips114_clear();    // 娓呭睆
-  // 鍒濆鍖栨棤绾夸覆鍙ｆā鍧楋紙閫愰鏃犵嚎杞覆鍙ｆā鍧楋級
-      if (wireless_uart_init() != 0)
-       {
-           // 无线串口初始化失败：LED 快闪指示，printf 不可用
-           while(1)
-           {
-               gpio_toggle_level(LED1);
-               system_delay_ms(100);
-           }
-       }
+  // 初始化无线串口（逐飞无线转串口，115200波特率，关自动波特率）
+      wireless_uart_init();
    system_init();
    pid_init_all();
 
