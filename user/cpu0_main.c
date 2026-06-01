@@ -189,7 +189,7 @@ void Control3(void)
         if (angle_error < -180.0f) angle_error += 360.0f;
 
         // 瑙掑害澶栫幆锛堟瘮渚挎帶鍒讹級
-        const float ANGLE_P = 14.0f; // 提高：让车更快转到位
+        const float ANGLE_P = 10.0f; // 提高：让车更快转到位
         const float MAX_ANGULAR_SPEED = 500.0f;
         float target_angular_speed = angle_error * ANGLE_P;
         if (target_angular_speed > MAX_ANGULAR_SPEED)
