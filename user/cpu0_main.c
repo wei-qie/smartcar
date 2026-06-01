@@ -64,7 +64,7 @@ void Control2(void)
         fan_off();
         return;
     }
-       float base_speed_rpm=2500.0f;     // 鍩虹閫熷害锛圧PM锛�
+       float base_speed_rpm=2800.0f;     // 鍩虹閫熷害锛圧PM锛�
        float left_target_rpm = base_speed_rpm +turn_pwm_adjust;
        float right_target_rpm= base_speed_rpm -turn_pwm_adjust;
 
