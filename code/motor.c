@@ -131,33 +131,20 @@ void fan_set_duty(int16_t duty)
 
 // ==================== 灵活负压控制参数 ====================
 #define FAN_DUTY_OFF        0       // 关闭
-#define FAN_DUTY_STRAIGHT   2500    // 直道基础负压 25%
-#define FAN_DUTY_CURVE      5500    // 弯道循线负压 55%
-#define FAN_DUTY_CORNER     8500    // 直角转弯负压 85%
+#define FAN_DUTY_STRAIGHT   3500    // 直道基础负压 35%
+#define FAN_DUTY_CORNER     4500    // 直角转弯满负压 45%（微缩组只有直角弯）
 #define GYRO_MAX_FAN        300.0f  // 角速度达到此值时满负压
 
 /**
  * @brief 灵活负压控制：根据转弯强度动态调节风扇
  * @param corner_active 是否在执行直角转弯
- * @param gyro_intensity 当前目标角速度绝对值（deg/s），反映转弯强度
+ * @param gyro_intensity 当前目标角速度绝对值（deg/s），保留参数备用
  */
 void fan_control_update(uint8_t corner_active, float gyro_intensity)
 {
-    int16_t duty;
+    (void)gyro_intensity;  // 微缩组只有直角弯，暂不用连续弯道插值
 
-    if (corner_active)
-    {
-        // 直角转弯 → 最大负压，增加抓地力
-        duty = FAN_DUTY_CORNER;
-    }
-    else
-    {
-        // 根据角速度大小线性插值：直道基础 → 弯道满负压
-        float ratio = gyro_intensity / GYRO_MAX_FAN;
-        if (ratio > 1.0f) ratio = 1.0f;
-        duty = FAN_DUTY_STRAIGHT + (int16_t)((FAN_DUTY_CURVE - FAN_DUTY_STRAIGHT) * ratio);
-    }
-
+    int16_t duty = corner_active ? FAN_DUTY_CORNER : FAN_DUTY_STRAIGHT;
     fan_set_duty(duty);
 }
 
