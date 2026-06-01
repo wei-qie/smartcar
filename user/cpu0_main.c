@@ -276,9 +276,12 @@ int core0_main(void)
   // 鍒濆鍖栨棤绾夸覆鍙ｆā鍧楋紙閫愰鏃犵嚎杞覆鍙ｆā鍧楋級
       if (wireless_uart_init() != 0)
        {
-           // 鍒濆鍖栧け璐ワ紝鍙�氳繃DEBUG涓插彛杈撳嚭閿欒淇℃伅
-           printf("wireless uart init failed!\r\n");
-           while(1);  // 鍋滄満绛夊緟
+           // 无线串口初始化失败：LED 快闪指示，printf 不可用
+           while(1)
+           {
+               gpio_toggle_level(LED1);
+               system_delay_ms(100);
+           }
        }
    system_init();
    pid_init_all();
