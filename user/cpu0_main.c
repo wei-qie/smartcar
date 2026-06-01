@@ -305,6 +305,10 @@ int core0_main(void)
 
                image_process();
                Control3();
+               // 运行时：根据转弯强度调节风扇负压
+               if (is_motor_running()) {
+                   fan_control_update(corner_turning_active, fabsf(target_gyro));
+               }
                printf("%d\n",encoder_get_count(TIM6_ENCODER));
            }
        }
