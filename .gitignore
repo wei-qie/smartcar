@@ -1,0 +1,19 @@
+# Build output
+Debug/
+*.elf
+*.hex
+*.map
+*.mdf
+
+# IDE settings
+.cproject
+.project
+.settings/
+
+# Claude settings
+.claude/
+
+# Temporary files
+*~
+*.bak
+*.swp
